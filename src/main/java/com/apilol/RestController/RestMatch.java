@@ -1,17 +1,15 @@
-package com.apilol.apilol;
+package com.apilol.RestController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.apilol.apilol.service.ServiceMatchHistory;
-import com.apilol.apilol.service.ServicePlayerInfo;
-import com.apilol.enitty.Match;
-import com.apilol.enitty.Matches;
-import com.apilol.enitty.Player;
+import com.apilol.enitty.User;
+import com.apilol.enitty.match.info.Matches;
+import com.apilol.service.ServiceMatchHistory;
+import com.apilol.service.ServicePlayerInfo;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -24,7 +22,7 @@ public class RestMatch {
 	private ServiceMatchHistory serviceMatch;
 	
 	@GetMapping("user/{name}")
-	public Player findByName(@PathVariable("name") String name) {
+	public User findByName(@PathVariable("name") String name) {
 		System.out.println(name);
 		return service.findByName(name);
 	}
