@@ -144,12 +144,12 @@ public class User {
 	}
 
 	public void setChampions(ChampionMastery[] champions) {
-		this.champions=Arrays.copyOf(champions, 4);
+		this.champions=Arrays.copyOf(champions, 3);
 		
 		//Obtenemos los nombres de los campeones y los introducimos en cada una de las maestrias
 		String championName;
 		
-		int lenghtChampio = champions.length>=4 ? 4 : champions.length;
+		int lenghtChampio = champions.length>=3 ? 3 : champions.length;
 		
 		for(int i = 0; i<lenghtChampio;i++) {
 			try {
