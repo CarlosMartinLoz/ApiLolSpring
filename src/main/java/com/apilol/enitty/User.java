@@ -1,7 +1,12 @@
 package com.apilol.enitty;
 
 
+import java.util.Arrays;
+
+import com.apilol.JSONReaders.ChampionsMetaData;
+import com.apilol.enitty.champion.ChampionMastery;
 import com.apilol.enitty.match.info.Matches;
+import com.apilol.exception.InitializeSingletonException;
 import com.fasterxml.jackson.annotation.JsonAlias;
 
 public class User {
@@ -22,6 +27,10 @@ public class User {
 	private String id;
 	
 	private Matches matches;
+	
+	private ChampionMastery [] champions;
+	
+	private LeagueRank rankStats;
 	
 	public User() {
 		
@@ -120,8 +129,38 @@ public class User {
 	public void setMatches(Matches matches) {
 		this.matches = matches;
 	}
+	
 
+	public ChampionMastery[] getChampions() {
+		return champions;
+	}
+	
+	public LeagueRank getRankStats() {
+		return rankStats;
+	}
 
+	public void setRankStats(LeagueRank rankStats) {
+		this.rankStats = rankStats;
+	}
+
+	public void setChampions(ChampionMastery[] champions) {
+		this.champions=Arrays.copyOf(champions, 4);
+		
+		//Obtenemos los nombres de los campeones y los introducimos en cada una de las maestrias
+		String championName;
+		
+		for(int i = 0; i<4;i++) {
+			try {
+				championName = ChampionsMetaData.getInstance().getChampionDataById(champions[i].getChampionId());
+				champions[i].setChampionName(championName);
+			} catch (InitializeSingletonException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 
 	@Override
 	public String toString() {
