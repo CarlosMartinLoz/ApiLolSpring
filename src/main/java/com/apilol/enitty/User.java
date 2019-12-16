@@ -149,7 +149,9 @@ public class User {
 		//Obtenemos los nombres de los campeones y los introducimos en cada una de las maestrias
 		String championName;
 		
-		for(int i = 0; i<4;i++) {
+		int lenghtChampio = champions.length>=4 ? 4 : champions.length;
+		
+		for(int i = 0; i<lenghtChampio;i++) {
 			try {
 				championName = ChampionsMetaData.getInstance().getChampionDataById(champions[i].getChampionId());
 				champions[i].setChampionName(championName);

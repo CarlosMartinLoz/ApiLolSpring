@@ -20,13 +20,6 @@ class ServiceMatchTest {
 	
 	@Test
 	void test() {
-		long time = System.nanoTime();
-		
-		Matches matches=service.MatchHistory("sd");
-		
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - time;
-		System.out.println("Time:"+totalTime/ 1_000_000_000.0);
 		
 	}
 
