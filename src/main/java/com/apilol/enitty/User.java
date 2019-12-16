@@ -161,7 +161,6 @@ public class User {
 		
 	}
 	
-
 	@Override
 	public String toString() {
 		return "Player [profileIcon=" + profileIcon + ", name=" + name + ", puuid=" + puuid + ", level=" + level

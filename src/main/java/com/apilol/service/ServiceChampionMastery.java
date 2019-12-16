@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import com.apilol.enitty.LeagueRank;
 import com.apilol.enitty.champion.ChampionMastery;
 import com.apilol.enitty.match.info.Matches;
+import com.apilol.utility.contants.URLPaths;
 import com.apilol.utility.factory.HeaderFactory;
 
 @Service
@@ -23,14 +24,11 @@ public class ServiceChampionMastery {
 	@Autowired
 	private HeaderFactory header;
 	
-
-	
-	
 	public ChampionMastery [] findBestChampions(String summonerId) {
 		HttpEntity<Map<String, String>> request = new HttpEntity<Map<String, String>>(null,
 				header.getHeaders(header.DEFAULT));
 
-		String fooResourceUrl = "https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+summonerId;
+		String fooResourceUrl = URLPaths.getUrlchampionsmasterydetails()+summonerId;
 		ResponseEntity<ChampionMastery[]> response = restTemplate.exchange(fooResourceUrl, HttpMethod.GET, request,
 				ChampionMastery[].class);
 		

@@ -13,11 +13,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Match {
 
 	private long gameId;
-	private short champion;
 	private String lane;
 	private String platformId;
-	private short queue;
-	private byte season;
 
 	@JsonProperty("participantIdentities")
 	private Player[] participantIdentities;
@@ -33,12 +30,11 @@ public class Match {
 			byte season) {
 		super();
 		this.gameId = gameId;
-		this.champion = champion;
+
 		this.lane = lane;
 		this.platformId = platformId;
 	
-		this.queue = queue;
-		this.season = season;
+
 	}
 
 	public long getGameId() {
@@ -49,13 +45,6 @@ public class Match {
 		this.gameId = gameId;
 	}
 
-	public short getChampion() {
-		return champion;
-	}
-
-	public void setChampion(short champion) {
-		this.champion = champion;
-	}
 
 	public String getLane() {
 		return lane;
@@ -75,21 +64,7 @@ public class Match {
 
 
 
-	public short getQueue() {
-		return queue;
-	}
 
-	public void setQueue(short queue) {
-		this.queue = queue;
-	}
-
-	public byte getSeason() {
-		return season;
-	}
-
-	public void setSeason(byte season) {
-		this.season = season;
-	}
 
 	public Player[] getParticipantIdentities() {
 		return participantIdentities;
@@ -128,12 +103,6 @@ public class Match {
 		participantData = null;
 	}
 
-	@Override
-	public String toString() {
-		return "Match [gameId=" + gameId + ", champion=" + champion + ", lane=" + lane + ", platformId=" + platformId
-				+ ", queue=" + queue + ", season=" + season + ", participantIdentities="
-				+ Arrays.toString(participantIdentities) + ", participantData=" + Arrays.toString(participantData)
-				+ "]";
-	}
+
 
 }

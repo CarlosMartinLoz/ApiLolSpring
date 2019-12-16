@@ -29,12 +29,12 @@ public class ServiceMatchHistory {
 	
 
 	
-	public Matches MatchHistory(String accountId) {
+	public Matches MatchHistory(String accountId,int from,int to) {
 
 		HttpEntity<Map<String, String>> request = new HttpEntity<Map<String, String>>(null,
 				header.getHeaders(header.DEFAULT));
 
-		String fooResourceUrl = "https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/14kVWlnr-rj2aq2lcrkyyAfGqeqi7y5uGyJI6siBPvfUzA?endIndex=1&beginIndex=0";
+		String fooResourceUrl = "https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/14kVWlnr-rj2aq2lcrkyyAfGqeqi7y5uGyJI6siBPvfUzA?endIndex="+to+"&beginIndex="+from;
 		ResponseEntity<Matches> response = restTemplate.exchange(fooResourceUrl, HttpMethod.GET, request,
 				Matches.class);
 		

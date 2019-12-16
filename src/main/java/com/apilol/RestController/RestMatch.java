@@ -27,9 +27,11 @@ public class RestMatch {
 		return service.findByName(name);
 	}
 	
-	@GetMapping("matches/{accountId}")
-	public Matches matchesByAccountId(@PathVariable("accountId") String accountId) {
-		return serviceMatch.MatchHistory(accountId);
+	@GetMapping("matches/{accountId}/from/{from}/to/{to}")
+	public Matches matchesByAccountId(@PathVariable("accountId") String accountId,
+			@PathVariable("from") int from,
+			@PathVariable("to") int to) {
+		return serviceMatch.MatchHistory(accountId,from,to);
 	}
 
 }

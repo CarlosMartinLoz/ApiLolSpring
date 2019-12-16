@@ -5,7 +5,9 @@ public class URLPaths {
 	
 	private static final String URLProfile = "https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-name/"
 			, URLMatchHistory ="https://euw1.api.riotgames.com/lol/match/v4/matchlists/by-account/"
-			, URLMatchDetails="https://euw1.api.riotgames.com/lol/match/v4/matches/";
+			, URLMatchDetails="https://euw1.api.riotgames.com/lol/match/v4/matches/",
+			URLRankDetailts = "https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/"
+			,URLChampionsMasteryDetails = "https://euw1.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/";
 	
 	public static String URLProfile() {
 		return URLProfile;
@@ -22,4 +24,15 @@ public class URLPaths {
 	public static String getUrlmatchdetails() {
 		return URLMatchDetails;
 	}
+
+	public static String getUrlrankdetailts() {
+		return URLRankDetailts;
+	}
+
+	public static String getUrlchampionsmasterydetails() {
+		return URLChampionsMasteryDetails;
+	}
+	
+	
+	
 }

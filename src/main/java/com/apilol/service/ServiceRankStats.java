@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.apilol.enitty.LeagueRank;
 import com.apilol.enitty.champion.ChampionMastery;
+import com.apilol.utility.contants.URLPaths;
 import com.apilol.utility.factory.HeaderFactory;
 
 @Service
@@ -26,7 +27,7 @@ public class ServiceRankStats {
 		HttpEntity<Map<String, String>> request = new HttpEntity<Map<String, String>>(null,
 				header.getHeaders(header.DEFAULT));
 
-		String fooResourceUrl = "https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/"+summonerId;
+		String fooResourceUrl = URLPaths.getUrlrankdetailts()+summonerId;
 		ResponseEntity<LeagueRank[]> response = restTemplate.exchange(fooResourceUrl, HttpMethod.GET, request,
 				LeagueRank[].class);
 		//Queremos devolver tan solo soloQ no flex ni  3 vs 3
