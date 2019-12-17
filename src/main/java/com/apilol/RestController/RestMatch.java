@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apilol.enitty.User;
+import com.apilol.enitty.match.info.Match;
 import com.apilol.enitty.match.info.Matches;
 import com.apilol.service.ServiceMatchHistory;
 import com.apilol.service.ServicePlayerInfo;
@@ -30,10 +31,10 @@ public class RestMatch {
 	
 	
 	@GetMapping("matches/{accountId}/from/{from}/to/{to}")
-	public Matches matchesByAccountId(@PathVariable("accountId") String accountId,
+	public Match[] matchesByAccountId(@PathVariable("accountId") String accountId,
 			@PathVariable("from") int from,
 			@PathVariable("to") int to) {
-		return serviceMatch.MatchHistory(accountId,from,to);
+		return serviceMatch.MatchHistory(accountId,from,to).getMatches();
 	}
 
 }
