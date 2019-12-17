@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.apilol.enitty.Datos;
 import com.apilol.enitty.User;
+import com.apilol.enitty.match.info.Match;
 import com.apilol.enitty.match.info.Matches;
 import com.apilol.service.ServiceDatos;
 import com.apilol.service.ServiceMatchHistory;
@@ -55,10 +56,10 @@ public class RestMatch {
 	
 	
 	@GetMapping("matches/{accountId}/from/{from}/to/{to}")
-	public Matches matchesByAccountId(@PathVariable("accountId") String accountId,
+	public Match[] matchesByAccountId(@PathVariable("accountId") String accountId,
 			@PathVariable("from") int from,
 			@PathVariable("to") int to) {
-		return serviceMatch.MatchHistory(accountId,from,to);
+		return serviceMatch.MatchHistory(accountId,from,to).getMatches();
 	}
 
 }
