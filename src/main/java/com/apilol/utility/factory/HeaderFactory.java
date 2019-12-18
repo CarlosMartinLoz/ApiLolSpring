@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 //Factory para abstraer la creacion de los header. En caso de nuevo header incluir aqui
 @Component
 public class HeaderFactory {
-	private final String key = "RGAPI-03b19625-3958-499f-8510-747161cd2672";
+	private final String key = "RGAPI-685e6d8f-7435-4d8a-b41b-ad10a906cad5";
 	public final String DEFAULT = "DEFAULT";
 
 	public HttpHeaders getHeaders(String comand) {

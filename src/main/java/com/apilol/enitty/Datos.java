@@ -1,12 +1,13 @@
 package com.apilol.enitty;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Datos {
 
 	private String navegador;
-	private String IP;
-	private Date hora;
+	private String ip;
+	private Timestamp hora;
 	private String endpoint;
 
 	public Datos() {
@@ -14,10 +15,10 @@ public class Datos {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Datos(String navegador, String iP, Date hora, String endpoint) {
+	public Datos(String navegador, String ip, Timestamp hora, String endpoint) {
 		super();
 		this.navegador = navegador;
-		IP = iP;
+		this.ip = ip;
 		this.hora = hora;
 		this.endpoint = endpoint;
 	}
@@ -30,19 +31,19 @@ public class Datos {
 		this.navegador = navegador;
 	}
 
-	public String getIP() {
-		return IP;
+	public String getIp() {
+		return ip;
 	}
 
-	public void setIP(String iP) {
-		IP = iP;
+	public void setIp(String ip) {
+		this.ip = ip;
 	}
 
-	public Date getHora() {
+	public Timestamp getHora() {
 		return hora;
 	}
 
-	public void setHora(Date hora) {
+	public void setHora(Timestamp hora) {
 		this.hora = hora;
 	}
 
@@ -54,9 +55,6 @@ public class Datos {
 		this.endpoint = endpoint;
 	}
 
-	@Override
-	public String toString() {
-		return "Datos [navegador=" + navegador + ", IP=" + IP + ", hora=" + hora + ", endpoint=" + endpoint + "]";
-	}
+	
 
 }
