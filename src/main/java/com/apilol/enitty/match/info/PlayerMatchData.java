@@ -16,8 +16,7 @@ public class PlayerMatchData {
 	@JsonProperty("teamId")
 	private int teamId;
 	
-	@JsonProperty("win")
-	private boolean win;
+
 	
 	@JsonProperty("championId")
 	private int championId;

@@ -19,14 +19,7 @@ class ServiceUserLolTest {
 	
 	@Test
 	void test() {
-		long time = System.nanoTime();
-		service = new ServicePlayerInfo();
-		User player= service.findByName("Feizan");
-		System.out.println("Hola"+player);
-		assertNotNull(player);
-		long endTime   = System.nanoTime();
-		long totalTime = endTime - time;
-		System.out.println(totalTime/ 1_000_000_000.0);
+
 	}
 
 }

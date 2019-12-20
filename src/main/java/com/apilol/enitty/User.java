@@ -8,9 +8,10 @@ import com.apilol.enitty.champion.ChampionMastery;
 import com.apilol.enitty.match.info.Matches;
 import com.apilol.exception.InitializeSingletonException;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class User {
-	
+	@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 	private short profileIcon;
 	
 	@JsonAlias({"summonerName", "name"})
@@ -19,6 +20,7 @@ public class User {
 	@JsonAlias({"currentAccountId", "puuid"})
 	private String puuid;
 	
+	@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 	private short level;
 	
 	private String accountId;

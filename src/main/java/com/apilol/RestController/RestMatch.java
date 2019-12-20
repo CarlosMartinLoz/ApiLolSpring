@@ -48,26 +48,27 @@ public class RestMatch {
 		return service.findByName(name);
 	}
 
-	public void insertarDatos(HttpServletRequest request)  {
-			Calendar c = Calendar.getInstance();
-			Timestamp date = new Timestamp(c.getTimeInMillis());
-
-			Datos d = new Datos();
-
-			d.setNavegador(request.getHeader("User-Agent"));
-			d.setIp(request.getRemoteAddr());
-			d.setHora(date);
-			d.setEndpoint(request.getRequestURL().toString());
-			servicedatos.addDatos(d);
-		
-		
-
-	}
 
 	@GetMapping("matches/{accountId}/from/{from}/to/{to}")
 	public Match[] matchesByAccountId(@PathVariable("accountId") String accountId, @PathVariable("from") int from,
 			@PathVariable("to") int to) {
 		return serviceMatch.MatchHistory(accountId, from, to).getMatches();
 	}
+	
+	public void insertarDatos(HttpServletRequest request)  {
+		Calendar c = Calendar.getInstance();
+		Timestamp date = new Timestamp(c.getTimeInMillis());
+
+		Datos d = new Datos();
+
+		d.setNavegador(request.getHeader("User-Agent"));
+		d.setIp(request.getRemoteAddr());
+		d.setHora(date);
+		d.setEndpoint(request.getRequestURL().toString());
+		servicedatos.addDatos(d);
+	
+	
+
+}
 
 }

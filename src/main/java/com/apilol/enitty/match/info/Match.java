@@ -15,6 +15,9 @@ public class Match {
 	private long gameId;
 	private String lane;
 	private String platformId;
+	
+	@JsonProperty("teams")
+	private Team[] teams;
 
 	@JsonProperty("participantIdentities")
 	private Player[] participantIdentities;
@@ -61,11 +64,7 @@ public class Match {
 	public void setPlatformId(String platformId) {
 		this.platformId = platformId;
 	}
-
-
-
-
-
+	
 	public Player[] getParticipantIdentities() {
 		return participantIdentities;
 	}
@@ -74,9 +73,7 @@ public class Match {
 		this.participantIdentities = participantIdentities;
 	}
 
-	public PlayerMatchData[] getParticipantData() {
-		return participantData;
-	}
+ 
 
 	public void setParticipantData(PlayerMatchData[] participantData) {
 		this.participantData = participantData;
@@ -84,7 +81,11 @@ public class Match {
 
 	public void format() {
 		ChampionsMetaData champs;
-		
+		Team team = new Team();
+		Team team2 = new Team();
+		teams = new Team[2];
+		teams[0]=team;
+		teams[1]=team2;
 		try {
 			champs = ChampionsMetaData.getInstance();
 
@@ -92,14 +93,21 @@ public class Match {
 				String championName = champs.getChampionDataById(participantData[i].getChampionId());
 				participantData[i].setChampion(championName);
 				participantIdentities[i].getPlayerData().setPlayerMatchData(participantData[i]);
+				if(i<=participantIdentities.length/2-1) {
+					team.setTeamPlayer(participantIdentities[i]);
+				}else {
+					team2.setTeamPlayer(participantIdentities[i]);
+				}
 
 			}
+			
+			
 
 		} catch (InitializeSingletonException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		participantIdentities=null;
 		participantData = null;
 	}
 

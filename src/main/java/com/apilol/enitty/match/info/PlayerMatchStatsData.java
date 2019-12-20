@@ -12,6 +12,8 @@ public class PlayerMatchStatsData {
 	private int assists;
 	@JsonProperty("deaths")
 	private int deaths;
+	@JsonProperty("win")
+	private boolean win;
 	
 	
 	public PlayerMatchStatsData() {
